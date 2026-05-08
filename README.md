@@ -11,7 +11,7 @@ Projektet använder Google Books API för att hämta bokdata, inklusive titlar, 
 [Google Books API](https://developers.google.com/books)
 
 ## Instruktioner för att köra projektet:
-Sök på böcker, spara ner dem som antingen "Vill läsa" eller "Har läst". Om du har läst en bok får du möjligheten att recensera den, spara recensionen. Om du sedan besöker den specifika bokens sida kan du redigera och rader din recension samt lägga till fler recensioner.
+Sök på böcker, spara ner dem som antingen "Vill läsa" eller "Har läst". Om du har läst en bok får du möjligheten att recensera den, spara recensionen. Om du sedan besöker den specifika bokens sida kan du redigera och/eller radera din recension samt lägga till fler recensioner.
 
 ## Lista på implementerade features:
 * Sökfunktion: Dynamisk sökning mot Google Books API med pagination (20 resultat per sida).
@@ -38,3 +38,10 @@ Sök på böcker, spara ner dem som antingen "Vill läsa" eller "Har läst". Om 
 **Unika ID:n:** Recensioners ID genereras baserat på Date.now(), vilket fungerar utmärkt för lokal användning men skulle behöva ersättas av en databas-genererad UUID i en produktionsmiljö med flera användare.
 
 **API-uppdatering:** Det går inte att skicka upp någon data till APIet, t.ex. recensionerna och betygsättningen. Som det ju ofta blir med pubklia APIer.
+
+**Funktioner som fattas i nuläget:**
+* Inlogg för bokklubbsmedlemmarna för att få en mer personlig översikt.
+* Gemensamt betyg från alla recensenter
+* Fler ytor för att upptäcka böcker, t.ex. "liknande böcker", Högst rankade böcker, Nya populära böcker etc.
+* Mer info om bokklubben (en Om oss-sida)
+* En blogg kanske hade varit kul?
