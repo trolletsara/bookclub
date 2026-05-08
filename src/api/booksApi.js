@@ -1,32 +1,32 @@
 import apiClient from './axiosConfig';
 
 export const getAllBooks = async (query, startIndex = 0) => {
-    try {
-        const q = query && query.trim() !== "" ? query : 'subject:fiction';
-        
-        const response = await apiClient.get('/volumes', {
-            params: {
-                q: q,
-                startIndex: startIndex,
-                maxResults: 20
-            }
-        });
-        
-        return response.data;
-        
-    } catch (error) {
-        console.error("Fel vid hämtning av böcker:", error);
-        throw new Error('Kunde inte hämta böcker från Google. Kontrollera din anslutning.');
-    }
+  try {
+    const q = query && query.trim() !== "" ? query : 'subject:fiction';
+
+    const response = await apiClient.get('/volumes', {
+      params: {
+        q: q,
+        startIndex: startIndex,
+        maxResults: 20
+      }
+    });
+
+    return response.data;
+
+  } catch (error) {
+    console.error("Fel vid hämtning av böcker:", error);
+    throw new Error('Kunde inte hämta böcker från Google. Kontrollera din anslutning.');
+  }
 }
 
 export async function getBookById(id) {
-    const response = await apiClient.get(`/volumes/${id}`);
-    return response.data;
+  const response = await apiClient.get(`/volumes/${id}`);
+  return response.data;
 }
 
 export async function createBook(bookData) {
-      try {
+  try {
     const response = await apiClient.post('/volumes', bookData);
     return response.data;
   } catch (error) {
@@ -62,10 +62,10 @@ export async function deleteBook(id) {
 }
 
 export async function searchBooks(query) {
-    const response = await apiClient.get('/volumes', {
-      params: {
-        q: query
-      }
-    });
-    return response.data.items;
+  const response = await apiClient.get('/volumes', {
+    params: {
+      q: query
+    }
+  });
+  return response.data.items;
 }

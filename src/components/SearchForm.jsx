@@ -10,20 +10,19 @@ const SearchForm = () => {
     const navigate = useNavigate();
 
     const handleSearch = (e) => {
-    e.preventDefault();
-    const trimmedQuery = searchQuery.trim();
-    
-    if (trimmedQuery) {
-        // Vi navigerar BARA. Books.jsx kommer fånga upp detta via sin useEffect.
-        navigate(`/books?q=${encodeURIComponent(trimmedQuery)}`);
-        setSearchQuery(''); 
-    }
-};
+        e.preventDefault();
+        const trimmedQuery = searchQuery.trim();
+
+        if (trimmedQuery) {
+            navigate(`/books?q=${encodeURIComponent(trimmedQuery)}`);
+            setSearchQuery('');
+        }
+    };
 
     return (
         <form onSubmit={handleSearch}>
-            <input 
-                type="text" 
+            <input
+                type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Sök efter böcker..."

@@ -18,7 +18,7 @@ const Header = () => {
           </h1>
           <p className="tagline">Läser och lever!</p>
         </div>
-        
+
         {/* Hamburgarknapp - placerad sist i containern */}
         <button className="hamburger" onClick={toggleMenu} aria-label="Meny">
           <span className={`bar ${isOpen ? 'open' : ''}`}></span>

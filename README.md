@@ -45,3 +45,4 @@ Sök på böcker, spara ner dem som antingen "Vill läsa" eller "Har läst". Om 
 * Fler ytor för att upptäcka böcker, t.ex. "liknande böcker", Högst rankade böcker, Nya populära böcker etc.
 * Mer info om bokklubben (en Om oss-sida)
 * En blogg kanske hade varit kul?
+* Tydligare och roligare loading-läge

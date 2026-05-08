@@ -4,11 +4,12 @@ import { useNavigate, useParams } from 'react-router-dom';
 import ActionButtons from '../components/ActionButtons';
 import '../css/bookdetails.css';
 import ReviewModal from '../components/ReviewModal';
+import Loading from '../components/Loading';
 
 const BookDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { getBookByContextId, readBooks, deleteReview, updateReview } = useBooks();
+  const { getBookByContextId, readBooks, deleteReview, updateReview, loading } = useBooks();
   const [currentBook, setCurrentBook] = useState(null);
   const [editingReview, setEditingReview] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -31,21 +32,21 @@ const BookDetails = () => {
 
   const currentReadBook = currentBook ? readBooks.find(b => b.id === currentBook.id) : null;
 
-  // Funktion för att öppna modalen för en NY recension
   const handleAddReview = () => {
-    setEditingReview(null); // Se till att den är tom
+    setEditingReview(null);
     setIsModalOpen(true);
   };
 
-  // Funktion för att öppna modalen för att ÄNDRA
   const handleEditReview = (review) => {
-    setEditingReview(review); // Skicka med den befintliga recensionen
+    setEditingReview(review);
     setIsModalOpen(true);
   };
 
   return (
     <div className="book-details-container">
       <button className='back-btn' onClick={() => navigate(-1)}>&lt; Tillbaka</button>
+
+      {loading && <Loading />}
 
       {currentBook ? (
         <div className="bd-layout">

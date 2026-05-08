@@ -43,7 +43,6 @@ const ActionButtons = ({ book, onAddReview }) => {
               removeFromWatchlist(book.id);
             } else {
               addToWatchlist(book);
-              // VIKTIGT: Om man vill läsa boken ska den tas bort från "Har läst"
               removeFromRead(book.id);
             }
           }}
@@ -72,7 +71,6 @@ const ActionButtons = ({ book, onAddReview }) => {
             }
           }}
         >
-          {/* Du kan ändra texten dynamiskt också om du vill */}
           {onAddReview ? 'Skriv recension' : 'Läs/skriv recensioner'}
         </button>
       )}

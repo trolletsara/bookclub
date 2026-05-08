@@ -10,25 +10,25 @@ import SearchForm from '../components/SearchForm';
 
 const Home = () => {
 
-    const { books, loading, getAllContextBooks } = useBooks();
-    const navigate = useNavigate();
+  const { books, loading, getAllContextBooks } = useBooks();
+  const navigate = useNavigate();
 
-    const handleBookClick = (id) => {
-        navigate(`/books/${id}`);
-    }
+  const handleBookClick = (id) => {
+    navigate(`/books/${id}`);
+  }
 
   return (
     <main className="main-content">
-        <SearchForm />
-        
-        {loading ? <Loading /> : null}
-        <hr />
+      <SearchForm />
 
-        <SavedBooks />
+      {loading ? <Loading /> : null}
+      <hr />
 
-        <hr />
+      <SavedBooks />
 
-        <ReadBooks />
+      <hr />
+
+      <ReadBooks />
     </main>
   )
 }

@@ -15,19 +15,15 @@ const Books = () => {
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    // Om det finns ett 'q' i URL, använd det. Annars använd standard-söket.
     const queryFromUrl = params.get('q') || 'subject:fiction';
 
-    // Logga gärna här för att se vad som händer i konsolen
     console.log("URL Query:", queryFromUrl, "Current State Query:", currentQuery);
 
-    // Kör sökningen. searchBooks har redan en inbyggd check (isSearching)
-    // så vi behöver inte vara lika rädda här.
     if (queryFromUrl !== currentQuery) {
-        searchBooks(queryFromUrl, 0);
+      searchBooks(queryFromUrl, 0);
     }
 
-}, [location.search, searchBooks]);
+  }, [location.search, searchBooks]);
 
   const handleBookClick = (id) => {
     navigate(`/books/${id}`);

@@ -11,41 +11,41 @@ const ReviewModal = ({ book, isOpen, onClose, editingReview }) => {
     const { addBookReview, updateReview } = useBooks();
 
     useEffect(() => {
-    // Om modalen är öppen
-    if (isOpen) {
-        if (editingReview) {
-            // Vi har en recension att ändra -> fyll i fältet med befintlig data
-            setFormData({
-                reviewer: editingReview.reviewer || "",
-                rating: editingReview.rating || "5",
-                text: editingReview.text || ""
-            });
-        } else {
-            // Vi ska lägga till en ny -> töm fälten
-            setFormData({
-                reviewer: "",
-                rating: "5",
-                text: ""
-            });
+        // Om modalen är öppen
+        if (isOpen) {
+            if (editingReview) {
+                // Vi har en recension att ändra -> fyll i fältet med befintlig data
+                setFormData({
+                    reviewer: editingReview.reviewer || "",
+                    rating: editingReview.rating || "5",
+                    text: editingReview.text || ""
+                });
+            } else {
+                // Vi ska lägga till en ny -> töm fälten
+                setFormData({
+                    reviewer: "",
+                    rating: "5",
+                    text: ""
+                });
+            }
         }
-    }
-}, [isOpen, editingReview]);
+    }, [isOpen, editingReview]);
 
     if (!isOpen) return null;
 
-   const handleSubmit = (e) => {
-    e.preventDefault();
+    const handleSubmit = (e) => {
+        e.preventDefault();
 
-    if (editingReview) {
+        if (editingReview) {
             console.log("Uppdaterar befintlig recension");
             updateReview(book.id, editingReview.id, formData);
         } else {
             console.log("Skapar ny recension...");
             addBookReview(book.id, formData);
         }
-    
-    onClose();
-};
+
+        onClose();
+    };
 
     return (
         <div className="modal-overlay">
@@ -53,29 +53,29 @@ const ReviewModal = ({ book, isOpen, onClose, editingReview }) => {
                 <h3>Recension för {book?.volumeInfo?.title}</h3>
 
                 <form onSubmit={handleSubmit} className="review-form">
-                        <div className='name-container'>
-                            <label>Ditt namn: </label>
-                            <input
-                                type="text"
-                                value={formData.reviewer}
-                                onChange={(e) => setFormData({ ...formData, reviewer: e.target.value })}
-                                placeholder="Skriv ditt namn..."
-                            />
-                        </div>
+                    <div className='name-container'>
+                        <label>Ditt namn: </label>
+                        <input
+                            type="text"
+                            value={formData.reviewer}
+                            onChange={(e) => setFormData({ ...formData, reviewer: e.target.value })}
+                            placeholder="Skriv ditt namn..."
+                        />
+                    </div>
 
-                        <div className='rating-container'>
-                            <label>Betyg: </label>
-                            <select
-                                value={formData.rating}
-                                onChange={(e) => setFormData({ ...formData, rating: e.target.value })}
-                            >
-                                <option value="1">1 - Dålig</option>
-                                <option value="2">2 - Okej</option>
-                                <option value="3">3 - Bra</option>
-                                <option value="4">4 - Mycket bra</option>
-                                <option value="5">5 - Mästerverk!</option>
-                            </select>
-                        </div>
+                    <div className='rating-container'>
+                        <label>Betyg: </label>
+                        <select
+                            value={formData.rating}
+                            onChange={(e) => setFormData({ ...formData, rating: e.target.value })}
+                        >
+                            <option value="1">1 - Dålig</option>
+                            <option value="2">2 - Okej</option>
+                            <option value="3">3 - Bra</option>
+                            <option value="4">4 - Mycket bra</option>
+                            <option value="5">5 - Mästerverk!</option>
+                        </select>
+                    </div>
 
                     <div className='text-container'>
                         <label>Din recension: </label>
