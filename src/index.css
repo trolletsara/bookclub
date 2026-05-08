@@ -1,0 +1,76 @@
+:root {
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 16px/145% var(--sans);
+  letter-spacing: 0.18px;
+
+  --bg: rgb(253, 255, 220);
+  --red: rgb(255, 60, 0);
+  --accent-green: rgb(142, 237, 0);
+  --pink: #ffeded;
+
+  @media (max-width: 1024px) {
+    font-size: 12px;
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100svh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg);
+
+}
+
+#root {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  /* text-align: center; */
+
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: "Bungee Inline", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 80px;
+
+}
+
+h2 {
+  font-size: 28px;
+ font-family: "Bungee Inline", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h3 {
+  font-family: var(--heading);
+  font-size: 18px;
+  line-height: 135%;
+}
+
+h4 {
+  font-family: var(--heading);
+  font-size: 16px;
+  line-height: 135%;
+}
+
+p {
+  margin: 0;
+  font-family: var(--sans);
+}

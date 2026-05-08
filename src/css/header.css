@@ -1,0 +1,159 @@
+.header {
+  position: relative;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 40px;
+  height: 150px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Grundstil för H1 */
+.header h1 {
+  margin: 0;
+}
+
+.header h1 a {
+  color: var(--accent-green);
+  text-decoration: none;
+  transition: 0.2s;
+  line-height: 1; /* Kontrollerar höjden på själva raden boksstäverna står på */
+}
+
+.header h1 a:hover {
+  color: var(--red);
+}
+
+.tagline {
+  font-size: 14px;
+  font-family: "Bungee Inline", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--red);
+  margin-top: 3px;
+  display: block;
+}
+
+/* --- MOBILANPASSNING --- */
+
+@media (max-width: 768px) {
+  .header-container {
+    height: 100px;
+    padding: 0 20px;
+  }
+
+  .header h1 {
+    font-size: 2.5rem;
+  }
+
+  .tagline {
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-top: 0;
+  }
+
+  .bar {
+    width: 30px;
+    height: 4px;
+  }
+}
+
+/* För riktigt små skärmar */
+@media (max-width: 400px) {
+  .header h1 {
+    font-size: 1.3rem;
+  }
+
+  .tagline {
+    display: none;
+  }
+}
+
+
+/* Hamburgarknappen */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  background: none;
+  border: none;
+  gap: 6px;
+  z-index: 100;
+  /* Så den ligger ovanpå menyn */
+  padding: 0;
+}
+
+.bar {
+  display: block;
+  width: 35px;
+  height: 5px;
+  background-color: var(--red);
+  transition: 0.3s;
+}
+
+/* Utfällbara menyn */
+.nav-menu {
+  position: fixed;
+  right: -100%;
+  /* Startar utanför skärmen till höger */
+  top: 0;
+  background-color: var(--pink);
+  width: 250px;
+  /* Du kan justera bredden här */
+  height: 100vh;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: 0.4s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 90;
+}
+
+.nav-menu.active {
+  right: 0;
+  /* Glider in till kanten */
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 2rem;
+  padding: 0;
+  text-align: center;
+}
+
+.nav-links a {
+  color: var(--red);
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: "Bungee Inline", sans-serif;
+  font-weight: 400;
+  font-style: normal;}
+
+.nav-links a:hover {
+  color: var(--accent-green);
+}
+
+/* Hamburgare-animation till ett X */
+.bar.open:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+
+.bar.open:nth-child(2) {
+  opacity: 0;
+}
+
+.bar.open:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+}
